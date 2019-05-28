@@ -32,4 +32,13 @@ public class EncodeController {
 
         return encodeService.encode(message.getRequest(), rot13Key);
     }
+
+    @PostMapping(path = "/caesar/{rotations}", produces = "application/json; charset=utf-8")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Message encodeUsingCaesar(@RequestBody Message message,
+                                     @PathVariable(name = "rotations") int rotations) throws EmptyStringException, NoLettersException {
+        BiMap<Character, Character> caesarKey = KeyGenerator.rotationSystem(rotations);
+
+        return encodeService.encode(message.getRequest(), caesarKey);
+    }
 }

@@ -19,6 +19,14 @@
        `/encode/rot13` 
         
        `/decode/rot13` 
+       
+    * **Caesar:**
+    
+       `/encode/caesar/n` 
+        
+       `/decode/caesar/n` 
+       
+       `n = number of rotations`
 
 * **Method:** `POST`
   
