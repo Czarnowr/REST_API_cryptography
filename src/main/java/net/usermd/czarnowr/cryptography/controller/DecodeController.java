@@ -1,6 +1,8 @@
 package net.usermd.czarnowr.cryptography.controller;
 
 import com.google.common.collect.BiMap;
+import net.usermd.czarnowr.cryptography.exception.EmptyStringException;
+import net.usermd.czarnowr.cryptography.exception.NoLettersException;
 import net.usermd.czarnowr.cryptography.model.Message;
 import net.usermd.czarnowr.cryptography.service.DecodeService;
 import net.usermd.czarnowr.cryptography.utility.KeyGenerator;
@@ -17,9 +19,9 @@ public class DecodeController {
 
     @PostMapping(path = "/atbash", produces = "application/json; charset=utf-8")
     @ResponseStatus(value = HttpStatus.OK)
-    public Message decodeUsingAtbash(@RequestBody Message message) {
+    public Message decodeUsingAtbash(@RequestBody Message message) throws EmptyStringException, NoLettersException {
         BiMap<Character, Character> atbashKey = KeyGenerator.getSubstitutionKey("zyxwvutsrqponmlkjihgfedcba");
 
-        return decodeService.substituteLetters(message.getMessageToDecode(), atbashKey);
+        return decodeService.substituteLetters(message.getRequest(), atbashKey);
     }
 }

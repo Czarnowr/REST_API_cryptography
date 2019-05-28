@@ -10,11 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Message {
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    String messageToDecode;
+    String request;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    String messageToEncode;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    String encodedMessage;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    String decodedMessage;
+    String response;
 }
