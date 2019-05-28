@@ -39,9 +39,20 @@
     **Content:** `{ error : Cannot process an empty String, please provide input }`
 
 * **Sample Call:**
-
-   
+        
+  * **Address:** `https://czarnowr-cryptography.herokuapp.com/api/encode/atbash`
+        
+  * **Method:**  `POST`
+        
+  * **Body:**    `{ "request" : "Sample message" }`  
+     
+     
+  * **Address:** `https://czarnowr-cryptography.herokuapp.com/api/decode/atbash`
+          
+    * **Method:**  `POST`
+          
+    * **Body:**    `{ "request" : "hznkov nvhhztv" }` 
 
 * **Notes:**
 
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
+    `In development`
