@@ -1,6 +1,7 @@
 package net.usermd.czarnowr.cryptography.controller;
 
 import com.google.common.collect.BiMap;
+import net.usermd.czarnowr.cryptography.model.Message;
 import net.usermd.czarnowr.cryptography.service.EncodeService;
 import net.usermd.czarnowr.cryptography.utility.KeyGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,11 @@ public class EncodeController {
     @Autowired
     private EncodeService encodeService;
 
-    @PutMapping(path = "/atbash", produces = "application/json; charset=utf-8")
-    @ResponseStatus(value = HttpStatus.ACCEPTED)
-    public String encodeUsingAtbash(@RequestBody String messageToEncode) {
+    @PostMapping(path = "/atbash", produces = "application/json; charset=utf-8")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Message encodeUsingAtbash(@RequestBody Message message) {
         BiMap<Character, Character> atbashKey = KeyGenerator.getSubstitutionKey("zyxwvutsrqponmlkjihgfedcba");
 
-        return encodeService.substituteLetters(messageToEncode, atbashKey);
+        return encodeService.substituteLetters(message.getMessageToEncode(), atbashKey);
     }
 }
