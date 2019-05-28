@@ -20,44 +20,43 @@
         
        `/decode/rot13` 
 
-* **Method:**
-
-  `POST`
+* **Method:** `POST`
   
 *  **URL Params**
 
-   **Required:**
- 
-   `n/a`
+   * **Required:** `n/a`
 
-   **Optional:**
- 
-   `n/a`
+   * **Optional:** `n/a`
 
 * **Data Params**
 
-  **Content:** `{ "request" : "text to process" }`
+  * **Content:** 
+    
+    `{ "request" : "text to process" }`
 
 * **Success Response:**
 
-  * **Code:** 200 <br />
+  * **Code:** `200`
+  
     **Content:** `{ "response" : "text after processing" }`
  
 * **Error Response:**
 
-  * **Code:** 422 UNPROCESSABLE ENTRY <br />
+  * **Code:** `422 UNPROCESSABLE ENTRY`
+  
     **Content:** `{ error : Input does not contain letters }`  
     
-    * **Code:** 422 UNPROCESSABLE ENTRY <br />
+  * **Code:** `422 UNPROCESSABLE ENTRY`
+    
     **Content:** `{ error : Cannot process an empty String, please provide input }`
 
 * **Sample Call:**
         
   * **Address:** `https://czarnowr-cryptography.herokuapp.com/api/encode/atbash`
         
-  * **Method:**  `POST`
+    * **Method:**  `POST`
         
-  * **Body:**    `{ "request" : "Sample message" }`  
+    * **Body:**    `{ "request" : "Sample message" }`  
      
      
   * **Address:** `https://czarnowr-cryptography.herokuapp.com/api/decode/atbash`
@@ -68,4 +67,4 @@
 
 * **Notes:**
 
-    `In development`
+    `Hosted on Heroku.com - please allow some time for the application to 'wake up'`
