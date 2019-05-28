@@ -20,8 +20,16 @@ public class DecodeController {
     @PostMapping(path = "/atbash", produces = "application/json; charset=utf-8")
     @ResponseStatus(value = HttpStatus.OK)
     public Message decodeUsingAtbash(@RequestBody Message message) throws EmptyStringException, NoLettersException {
-        BiMap<Character, Character> atbashKey = KeyGenerator.getSubstitutionKey("zyxwvutsrqponmlkjihgfedcba");
+        BiMap<Character, Character> atbashKey = KeyGenerator.keyWordSystem("zyxwvutsrqponmlkjihgfedcba");
 
-        return decodeService.substituteLetters(message.getRequest(), atbashKey);
+        return decodeService.decode(message.getRequest(), atbashKey);
+    }
+
+    @PostMapping(path = "/rot13", produces = "application/json; charset=utf-8")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Message decodeUsingRot13(@RequestBody Message message) throws EmptyStringException, NoLettersException {
+        BiMap<Character, Character> rot13Key = KeyGenerator.rotationSystem(13);
+
+        return decodeService.decode(message.getRequest(), rot13Key);
     }
 }

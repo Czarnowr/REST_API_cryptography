@@ -11,7 +11,7 @@ import java.util.Set;
 public class KeyGenerator {
     private static char[] latinAlphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
-    public static BiMap<Character, Character> getSubstitutionKey(String keyWord) {
+    public static BiMap<Character, Character> keyWordSystem(String keyWord) {
         Set<Character> keySet = new LinkedHashSet<>();
         for (int i = 0; i < keyWord.length(); i++) {
             keySet.add(keyWord.charAt(i));
@@ -24,12 +24,21 @@ public class KeyGenerator {
 
         Iterator<Character> iterator = keySet.iterator();
         int index = 0;
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             Character letter = iterator.next();
             keyMap.put(latinAlphabet[index], letter);
             index++;
         }
 
+        return keyMap;
+    }
+
+    public static BiMap<Character, Character> rotationSystem(int moveBy) {
+        BiMap<Character, Character> keyMap = HashBiMap.create();
+
+        for (int i = 0; i < 26; i++) {
+            keyMap.put(latinAlphabet[i], (latinAlphabet[(i + moveBy) % 26]));
+        }
         return keyMap;
     }
 }

@@ -4,8 +4,21 @@
 
 * **URL**
 
-  _/encode/atbash_
-  _/decode/atbash_
+    * **Base URL:**
+
+        `https://czarnowr-cryptography.herokuapp.com/api`
+
+    * **Atbash:** 
+    
+       `/encode/atbash` 
+    
+       `/decode/atbash`
+    
+    * **Rot13:**
+    
+       `/encode/rot13` 
+        
+       `/decode/rot13` 
 
 * **Method:**
 

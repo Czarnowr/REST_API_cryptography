@@ -20,8 +20,16 @@ public class EncodeController {
     @PostMapping(path = "/atbash", produces = "application/json; charset=utf-8")
     @ResponseStatus(value = HttpStatus.OK)
     public Message encodeUsingAtbash(@RequestBody Message message) throws EmptyStringException, NoLettersException {
-        BiMap<Character, Character> atbashKey = KeyGenerator.getSubstitutionKey("zyxwvutsrqponmlkjihgfedcba");
+        BiMap<Character, Character> atbashKey = KeyGenerator.keyWordSystem("zyxwvutsrqponmlkjihgfedcba");
 
-        return encodeService.substituteLetters(message.getRequest(), atbashKey);
+        return encodeService.encode(message.getRequest(), atbashKey);
+    }
+
+    @PostMapping(path = "/rot13", produces = "application/json; charset=utf-8")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Message encodeUsingRot13(@RequestBody Message message) throws EmptyStringException, NoLettersException {
+        BiMap<Character, Character> rot13Key = KeyGenerator.rotationSystem(13);
+
+        return encodeService.encode(message.getRequest(), rot13Key);
     }
 }

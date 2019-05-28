@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DecodeService {
 
-    public Message substituteLetters(String messageToDecode, BiMap<Character, Character> key) throws EmptyStringException, NoLettersException {
+    public Message decode(String messageToDecode, BiMap<Character, Character> key) throws EmptyStringException, NoLettersException {
         if (messageToDecode.isEmpty()){
             throw new EmptyStringException();
         }
