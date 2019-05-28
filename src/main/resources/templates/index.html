@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container col-sm-9" style="height: 10vh;">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/api/">
+                <h1 style="color: lightgrey">Cryptography</h1>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container col-sm-9">
+    <div class="content">
+        <div class="col-sm-9">
+            <br>
+            <h2>REST API Documentation</h2>
+            <br>
+            <h4><span class="label label-primary">About</span></h4><br>
+            <p>The cryptography project is a simple REST API providing the functionality to encode and decode text using
+                a selection of classical ciphers. The list of available ciphers and their description is available under
+                the 'ciphers' section below.</p>
+            <br>
+            <h4><span class="label label-primary">General Information</span></h4><br>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Http method:</td>
+                    <td>Post</td>
+                </tr>
+                <tr>
+                    <td>Request body:</td>
+                    <td>{ "request" : "text to process" }</td>
+                </tr>
+                <tr>
+                    <td>Response body:</td>
+                    <td>{ "response" : "text after processing" }</td>
+                </tr>
+                </tbody>
+            </table>
+            <h4><span class="label label-primary">URL</span></h4><br>
+            <div class="container">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Base URL:</td>
+                        <td>https://czarnowr-cryptography.herokuapp.com/api</td>
+                    </tr>
+                    <tr>
+                        <td>Encode text:</td>
+                        <td>/encode/:cipher/:modifier*</td>
+                    </tr>
+                    <tr>
+                        <td>Decode text:</td>
+                        <td>/decode/:cipherCode/:modifier*</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>* Please refer to detailed cipher description below to check wherther your chosen cipher requires the use
+                    of a modifier</p>
+            </div>
+            <br>
+            <h4><span class="label label-primary">Ciphers</span></h4><br>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Cipher name</th>
+                    <th>cipher code</th>
+                    <th>Modifier</th>
+                    <th>Key</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Atbash</td>
+                    <td>atbash</td>
+                    <td>-</td>
+                    <td>reversed alphabet</td>
+                </tr>
+                <tr>
+                    <td>ROT 13</td>
+                    <td>rot13</td>
+                    <td>-</td>
+                    <td>alphabet moved by 13 letters</td>
+                </tr>
+                <tr>
+                    <td>Caesar</td>
+                    <td>caesar</td>
+                    <td>n</td>
+                    <td>alphabet moved by n letters</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4><span class="label label-primary">Error Codes</span></h4><br>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Content</th>
+                    <th>Reason</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>400 BAD REQUEST</td>
+                    <td>{ error : Input does not contain letters }</td>
+                    <td>No letters in request body</td>
+                </tr>
+                <tr>
+                    <td>400 BAD REQUEST</td>
+                    <td>{ error : Cannot process an empty String, please provide input }</td>
+                    <td>Empty string sent in request body</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4><span class="label label-primary">Sample Call:</span></h4><br>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Address:</th>
+                    <th>Http method:</th>
+                    <th>Body:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>https://czarnowr-cryptography.herokuapp.com/api/encode/atbash</td>
+                    <td>POST</td>
+                    <td>{ "request" : "Sample message" }</td>
+                </tr>
+                <tr>
+                    <td>https://czarnowr-cryptography.herokuapp.com/api/decode/atbash</td>
+                    <td>POST</td>
+                    <td>{ "request" : "hznkov nvhhztv" }</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

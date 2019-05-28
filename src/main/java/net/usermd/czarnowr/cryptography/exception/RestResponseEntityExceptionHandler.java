@@ -16,13 +16,13 @@ public class RestResponseEntityExceptionHandler
     protected ResponseEntity<Object> handleEmptyString(RuntimeException ex, WebRequest request) {
         String bodyOfResponse = "{ error : Cannot process an empty String, please provide input }";
         return handleExceptionInternal(ex, bodyOfResponse,
-                new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY, request);
+                new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(value = {NoLettersException.class})
     protected ResponseEntity<Object> handleNoLetterCharacters(RuntimeException ex, WebRequest request) {
         String bodyOfResponse = "{ error : Input does not contain letters }";
         return handleExceptionInternal(ex, bodyOfResponse,
-                new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY, request);
+                new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 }

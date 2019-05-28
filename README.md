@@ -50,11 +50,11 @@
  
 * **Error Response:**
 
-  * **Code:** `422 UNPROCESSABLE ENTRY`
+  * **Code:** `400 UNPROCESSABLE ENTRY`
   
     **Content:** `{ error : Input does not contain letters }`  
     
-  * **Code:** `422 UNPROCESSABLE ENTRY`
+  * **Code:** `400 UNPROCESSABLE ENTRY`
     
     **Content:** `{ error : Cannot process an empty String, please provide input }`
 
