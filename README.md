@@ -1,3 +1,5 @@
+`Hosted on Heroku.com - please allow some time for the application to 'wake up'`
+
 **Cryptography Demo REST API**
 ----
   _Returns json message after encoding / decoding_
@@ -72,7 +74,3 @@
     * **Method:**  `POST`
           
     * **Body:**    `{ "request" : "hznkov nvhhztv" }` 
-
-* **Notes:**
-
-    `Hosted on Heroku.com - please allow some time for the application to 'wake up'`
